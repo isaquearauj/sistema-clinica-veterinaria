@@ -131,10 +131,54 @@ int main(void)
     return 0;
 }
 
-// ------------ Menus (stubs vazios pra preencher depois) ------------
-void menuPrincipal(void)
-{
-    // TODO: implementar menu principal (Animais, Veterinários, Consultas, Relatórios, Sair)
+void menuPrincipal(void) {
+    int escolha = -1;
+
+    do {
+        printf("\n========================================\n");
+        printf("   CLINICA VET - MENU PRINCIPAL\n");
+        printf("========================================\n");
+        printf("(1) Animais\n");
+        printf("(2) Veterinarios\n");
+        printf("(3) Consultas\n");
+        printf("(4) Relatorios (TXT)\n");
+        printf("(5) Salvar dados agora\n");
+        printf("(0) Sair\n");
+        printf("----------------------------------------\n");
+        printf("Escolha: ");
+
+        if (scanf("%d", &escolha) != 1) {
+            // limpa lixo da entrada (ex: usuário digitou letra)
+            int c; while ((c = getchar()) != '\n' && c != EOF) {}
+            printf("Entrada invalida. Tente novamente.\n");
+            escolha = -1; // volta pro menu
+            continue;
+        }
+
+        switch (escolha) {
+            case 1:
+                menuAnimais();
+                break;
+            case 2:
+                menuVeterinarios();
+                break;
+            case 3:
+                menuConsultas();
+                break;
+            case 4:
+                menuRelatorios();
+                break;
+            case 5:
+                // TODO: funcao para salvar dados;
+                break;
+            case 0:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
+                break;
+        }
+    } while (escolha != 0);
 }
 
 void menuAnimais(void) {
@@ -222,9 +266,18 @@ void menuVeterinarios(void)
 void menuConsultas(void)
 {
     // TODO: implementar submenu de Consultas (Cadastrar, Consultar, Alterar, Remover, Listar/Filtrar)
+    // JOAQUIM
 }
 
 void menuRelatorios(void)
 {
-    //
+  // LUCAS
+  // TODO: implementar submenu de Relatórios (Cadastrar, Consultar, Alterar, Remover, Listar/Filtrar)
+  // ========= RELATÓRIOS (TXT) =========
+  // 1) Consultas a partir de uma data D até hoje
+  // 2) Consultas por CRM do veterinário
+  // 3) Consultas por código do animal
+  // 0) Voltar
+  // -------------------------------------
+  // Escolha: _
 }
