@@ -112,10 +112,56 @@ int main(void) {
     return 0;
 }
 
-// ------------ Menus (stubs vazios pra preencher depois) ------------
 void menuPrincipal(void) {
-    // TODO: implementar menu principal (Animais, Veterinários, Consultas, Relatórios, Sair)
+    int escolha = -1;
+
+    do {
+        printf("\n========================================\n");
+        printf("   CLINICA VET - MENU PRINCIPAL\n");
+        printf("========================================\n");
+        printf("(1) Animais\n");
+        printf("(2) Veterinarios\n");
+        printf("(3) Consultas\n");
+        printf("(4) Relatorios (TXT)\n");
+        printf("(5) Salvar dados agora\n");
+        printf("(0) Sair\n");
+        printf("----------------------------------------\n");
+        printf("Escolha: ");
+
+        if (scanf("%d", &escolha) != 1) {
+            // limpa lixo da entrada (ex: usuário digitou letra)
+            int c; while ((c = getchar()) != '\n' && c != EOF) {}
+            printf("Entrada invalida. Tente novamente.\n");
+            escolha = -1; // volta pro menu
+            continue;
+        }
+
+        switch (escolha) {
+            case 1:
+                menuAnimais();
+                break;
+            case 2:
+                menuVeterinarios();
+                break;
+            case 3:
+                menuConsultas();
+                break;
+            case 4:
+                menuRelatorios();
+                break;
+            case 5:
+                // TODO: funcao para salvar dados;
+                break;
+            case 0:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
+                break;
+        }
+    } while (escolha != 0);
 }
+
 void menuAnimais(void) {
     // TODO: implementar submenu de Animais (Cadastrar, Consultar, Alterar, Remover, Listar)
 }
