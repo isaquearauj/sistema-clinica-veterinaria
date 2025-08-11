@@ -115,16 +115,16 @@ int main(void) {
 // ------------ Menus (stubs vazios pra preencher depois) ------------
 void menuPrincipal(void) {
     // TODO: implementar menu principal (Animais, Veterinários, Consultas, Relatórios, Sair)
-}
+} // ISAQUE
 void menuAnimais(void) {
     // TODO: implementar submenu de Animais (Cadastrar, Consultar, Alterar, Remover, Listar)
-}
+} // ARTHUR
 void menuVeterinarios(void) {
     // TODO: implementar submenu de Veterinários (Cadastrar, Consultar, Alterar, Remover, Listar)
-}
+} // HUMBERTO
 void menuConsultas(void) {
     // TODO: implementar submenu de Consultas (Cadastrar, Consultar, Alterar, Remover, Listar/Filtrar)
-}
+} // JOAQUIM
 void menuRelatorios(void) {
     // TODO: implementar geração de relatórios em TXT
-}
+} //LUCAS
