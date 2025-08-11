@@ -136,6 +136,7 @@ void menuPrincipal(void)
 {
     // TODO: implementar menu principal (Animais, Veterinários, Consultas, Relatórios, Sair)
 }
+feat/menu-veterinarios
 void menuAnimais(void)
 {
     // TODO: implementar submenu de Animais (Cadastrar, Consultar, Alterar, Remover, Listar)
@@ -182,5 +183,6 @@ void menuConsultas(void)
 }
 void menuRelatorios(void)
 {
-    // TODO: implementar geração de relatórios em TXT
+  //
 }
+main
