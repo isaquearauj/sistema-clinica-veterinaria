@@ -137,10 +137,51 @@ void menuPrincipal(void)
     // TODO: implementar menu principal (Animais, Veterinários, Consultas, Relatórios, Sair)
 }
 
-void menuAnimais(void)
-{
-    // TODO: implementar submenu de Animais (Cadastrar, Consultar, Alterar, Remover, Listar)
-}
+void menuAnimais(void) {
+    int opcao;
+
+    do {
+        printf("\n====== MENU ANIMAIS ======\n");
+        printf("(1) Cadastrar\n");
+        printf("(2) Consultar por Código\n");
+        printf("(3) Alterar\n");
+        printf("(4) Remover\n");
+        printf("(5) Listar todos\n");
+        printf("(0) Voltar\n");
+        printf("--------------------------\n");
+        printf("Escolha: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                // cadastrarAnimal();
+                printf("Funcao cadastrar animal chamada.\n");
+                break;
+            case 2:
+                // consultarAnimalPorCodigo();
+                printf("Funcao consultar animal chamada.\n");
+                break;
+            case 3:
+                // alterarAnimal();
+                printf("Funcao alterar animal chamada.\n");
+                break;
+            case 4:
+                // removerAnimal();
+                printf("Funcao remover animal chamada.\n");
+                break;
+            case 5:
+                // listarAnimais();
+                printf("Funcao listar animais chamada.\n");
+                break;
+            case 0:
+                menuPrincipal();
+                break;
+            default:
+                printf("Opcao invalida! Tente novamente.\n");
+        }
+    } while (opcao != 0);
+} 
+
 void menuVeterinarios(void)
 {
     printf("======= Menu Veterinarios =======\n");
@@ -177,10 +218,12 @@ void menuVeterinarios(void)
         break;
     }
 }
+
 void menuConsultas(void)
 {
     // TODO: implementar submenu de Consultas (Cadastrar, Consultar, Alterar, Remover, Listar/Filtrar)
 }
+
 void menuRelatorios(void)
 {
     //
