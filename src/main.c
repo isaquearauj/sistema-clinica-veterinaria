@@ -269,7 +269,7 @@ static void cabecalho(const char *titulo) {
 static void submenu_consultar_animais(void) {
     int op;
     do {
-        cabecalho("ANIMAIS — CONSULTAR");
+        cabecalho("ANIMAIS => CONSULTAR");
         printf("(1) Consultar por ID\n");
         printf("(2) Listar todos\n");
         printf("(0) Voltar\n");
@@ -290,7 +290,7 @@ static void submenu_consultar_animais(void) {
 static void submenu_consultar_veterinarios(void) {
     int op;
     do {
-        cabecalho("VETERINARIOS — CONSULTAR");
+        cabecalho("VETERINARIOS => CONSULTAR");
         printf("(1) Consultar por CRM\n");
         printf("(2) Listar todos\n");
         printf("(0) Voltar\n");
@@ -311,7 +311,7 @@ static void submenu_consultar_veterinarios(void) {
 static void menu_animais(void) {
     int op;
     do {
-        cabecalho("MENU — ANIMAIS");
+        cabecalho("MENU => ANIMAIS");
         printf("(1) Cadastrar\n");
         printf("(2) Atualizar\n");
         printf("(3) Remover\n");
@@ -336,7 +336,7 @@ static void menu_animais(void) {
 static void menu_veterinarios(void) {
     int op;
     do {
-        cabecalho("MENU — VETERINARIOS");
+        cabecalho("MENU => VETERINARIOS");
         printf("(1) Cadastrar\n");
         printf("(2) Atualizar\n");
         printf("(3) Remover\n");
@@ -359,12 +359,12 @@ static void menu_veterinarios(void) {
 
 // Submenus (próxima entrega)
 static void menu_consultas(void) {
-    cabecalho("MENU — CONSULTAS");
+    cabecalho("MENU => CONSULTAS");
     printf("** Em desenvolvimento para a proxima entrega **\n");
     /* TODO: CRUD de Consultas e filtros */
 }
 static void menu_relatorios(void) {
-    cabecalho("MENU — RELATORIOS");
+    cabecalho("MENU => RELATORIOS");
     printf("** Em desenvolvimento para a proxima entrega **\n");
     /* TODO: Geracao de arquivos .txt */
 }
@@ -373,7 +373,7 @@ static void menu_relatorios(void) {
 static void menu_principal(void) {
     int escolha;
     do {
-        cabecalho("CLINICA VET — MENU PRINCIPAL");
+        cabecalho("CLINICA VET => MENU PRINCIPAL");
         printf("(1) Animais\n");
         printf("(2) Veterinarios\n");
         printf("(3) Consultas\n");
