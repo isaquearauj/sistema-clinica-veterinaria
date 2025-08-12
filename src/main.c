@@ -9,7 +9,7 @@
 #define GROWTH_STEP     5
 
 // Structs principais
-typedef struct Animal {
+typedef struct {
     int  idAnimal;                          // sequencial (1..N)
     char nome[NOME_TAM];
     char especie[ESPECIE_TAM];
@@ -44,7 +44,7 @@ static int          g_nCons        = 0;
 static int          g_capCons      = 0;
 
 // Utilidade
-static void limpar_buffer_entrada(void) {
+static void limpar_buffer_entrada() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {}
 }
@@ -66,7 +66,7 @@ static int garantir_capacidade_veterinarios(int extra) {
 }
 
 // IDs de Animal devem permanecer 1..N, sem buracos após remoções
-static void resequenciar_animais(void) {
+static void resequenciar_animais() {
     for (int i = 0; i < g_nAnimais; i++) {
         g_animais[i].idAnimal = i + 1;
     }
@@ -89,7 +89,7 @@ static int encontrar_indice_veterinario_por_crm(int crm) {
 }
 
 // CRUD Animal
-static void cadastrar_animal(void) {
+static void cadastrar_animal() {
     if (!garantir_capacidade_animais(1)) { printf("Erro de memoria.\n"); return; }
 
     Animal a;
@@ -103,7 +103,7 @@ static void cadastrar_animal(void) {
     printf("Animal cadastrado com id %d.\n", a.idAnimal);
 }
 
-static void atualizar_animal(void) {
+static void atualizar_animal() {
     int id;
     printf("\n[Atualizar Animal]\n");
     printf("Informe o id do animal: ");
@@ -132,7 +132,7 @@ static void atualizar_animal(void) {
     } while (opc != 0);
 }
 
-static void remover_animal(void) {
+static void remover_animal() {
     int id;
     printf("\n[Remover Animal]\n");
     printf("Informe o id do animal: ");
@@ -151,7 +151,7 @@ static void remover_animal(void) {
     printf("Animal removido e IDs resequenciados.\n");
 }
 
-static void consultar_animal_por_id(void) {
+static void consultar_animal_por_id() {
     int id;
     printf("\n[Consultar Animal por ID]\n");
     printf("Informe o id: ");
@@ -165,7 +165,7 @@ static void consultar_animal_por_id(void) {
            a->idAnimal, a->nome, a->especie, a->dataNascimento);
 }
 
-static void listar_animais(void) {
+static void listar_animais() {
     printf("\n[Listar Animais]\n");
     if (g_nAnimais == 0) { printf("Nenhum animal cadastrado.\n"); return; }
     for (int i = 0; i < g_nAnimais; i++) {
@@ -176,12 +176,12 @@ static void listar_animais(void) {
 }
 
 // CRUD Veterinário
-static void cadastrar_veterinario(void) {
+static void cadastrar_veterinario() {
     if (!garantir_capacidade_veterinarios(1)) { printf("Erro de memoria.\n"); return; }
 
     Veterinario v;
     printf("\n[Cadastrar Veterinario]\n");
-    printf("CRM: "); if (scanf("%d", &v.crmVet) != 1) { limpar_buffer_entrada(); printf("Entrada invalida.\n"); return; }
+    printf("CRM(Apenas numeros): "); if (scanf("%d", &v.crmVet) != 1) { limpar_buffer_entrada(); printf("Entrada invalida.\n"); return; }
     if (encontrar_indice_veterinario_por_crm(v.crmVet) != -1) { printf("Ja existe veterinario com esse CRM.\n"); return; }
 
     printf("Nome: "); limpar_buffer_entrada(); scanf(" %49[^\n]", v.nome);
@@ -191,7 +191,7 @@ static void cadastrar_veterinario(void) {
     printf("Veterinario cadastrado (CRM %d).\n", v.crmVet);
 }
 
-static void atualizar_veterinario(void) {
+static void atualizar_veterinario() {
     int crm;
     printf("\n[Atualizar Veterinario]\n");
     printf("Informe o CRM: ");
@@ -218,7 +218,7 @@ static void atualizar_veterinario(void) {
     } while (opc != 0);
 }
 
-static void remover_veterinario(void) {
+static void remover_veterinario() {
     int crm;
     printf("\n[Remover Veterinario]\n");
     printf("Informe o CRM: ");
@@ -236,7 +236,7 @@ static void remover_veterinario(void) {
     printf("Veterinario removido.\n");
 }
 
-static void consultar_veterinario_por_crm(void) {
+static void consultar_veterinario_por_crm() {
     int crm;
     printf("\n[Consultar Veterinario por CRM]\n");
     printf("Informe o CRM: ");
@@ -249,7 +249,7 @@ static void consultar_veterinario_por_crm(void) {
     printf("CRM %d | Nome: %s | Tel: %s\n", v->crmVet, v->nome, v->telefone);
 }
 
-static void listar_veterinarios(void) {
+static void listar_veterinarios() {
     printf("\n[Listar Veterinarios]\n");
     if (g_nVets == 0) { printf("Nenhum veterinario cadastrado.\n"); return; }
     for (int i = 0; i < g_nVets; i++) {
@@ -266,7 +266,7 @@ static void cabecalho(const char *titulo) {
 }
 
 // Submenu: Consultar (Animal)
-static void submenu_consultar_animais(void) {
+static void submenu_consultar_animais() {
     int op;
     do {
         cabecalho("ANIMAIS => CONSULTAR");
@@ -287,7 +287,7 @@ static void submenu_consultar_animais(void) {
 }
 
 // Submenu: Consultar (Veterinario)
-static void submenu_consultar_veterinarios(void) {
+static void submenu_consultar_veterinarios() {
     int op;
     do {
         cabecalho("VETERINARIOS => CONSULTAR");
@@ -308,7 +308,7 @@ static void submenu_consultar_veterinarios(void) {
 }
 
 // Menu Animais
-static void menu_animais(void) {
+static void menu_animais() {
     int op;
     do {
         cabecalho("MENU => ANIMAIS");
@@ -333,7 +333,7 @@ static void menu_animais(void) {
 }
 
 // Menu Veterinarios
-static void menu_veterinarios(void) {
+static void menu_veterinarios() {
     int op;
     do {
         cabecalho("MENU => VETERINARIOS");
@@ -358,20 +358,20 @@ static void menu_veterinarios(void) {
 }
 
 // Submenus (próxima entrega)
-static void menu_consultas(void) {
+static void menu_consultas() {
     cabecalho("MENU => CONSULTAS");
     printf("** Em desenvolvimento para a proxima entrega **\n");
     /* TODO: CRUD de Consultas e filtros */
 }
-static void menu_relatorios(void) {
+static void menu_relatorios() {
     cabecalho("MENU => RELATORIOS");
     printf("** Em desenvolvimento para a proxima entrega **\n");
     /* TODO: Geracao de arquivos .txt */
 }
 
 // Menu principal
-static void menu_principal(void) {
-    int escolha;
+static void menu_principal() {
+    int op;
     do {
         cabecalho("CLINICA VET => MENU PRINCIPAL");
         printf("(1) Animais\n");
@@ -381,9 +381,9 @@ static void menu_principal(void) {
         printf("(0) Sair\n");
         printf("----------------------------------------\n");
         printf("Escolha: ");
-        if (scanf("%d", &escolha) != 1) { limpar_buffer_entrada(); escolha = -1; }
+        if (scanf("%d", &op) != 1) { limpar_buffer_entrada(); op = -1; }
 
-        switch (escolha) {
+        switch (op) {
             case 1: menu_animais(); break;
             case 2: menu_veterinarios(); break;
             case 3: menu_consultas(); break;   // stub
@@ -391,7 +391,7 @@ static void menu_principal(void) {
             case 0: printf("Saindo...\n"); break;
             default: printf("Opcao invalida.\n");
         }
-    } while (escolha != 0);
+    } while (op != 0);
 }
 
 // Inicialização
