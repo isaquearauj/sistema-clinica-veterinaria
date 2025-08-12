@@ -395,7 +395,7 @@ static void menu_principal() {
 }
 
 // Inicialização
-static int inicializar_aplicacao(void) {
+static int inicializar_aplicacao() {
     g_capAnimais = GROWTH_STEP;
     g_capVets    = GROWTH_STEP;
     g_capCons    = GROWTH_STEP; // reservado
@@ -412,7 +412,7 @@ static int inicializar_aplicacao(void) {
     return 1;
 }
 
-int main(void) {
+int main() {
     if (!inicializar_aplicacao()) return 1;
     menu_principal();
 
